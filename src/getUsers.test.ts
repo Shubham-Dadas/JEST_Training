@@ -8,30 +8,32 @@ jest.mock('./getUsers', () => (
 )
 );
 
-import {abc } from "./getUsers"
+import { abc } from "./getUsers"
+
 const fetchDataPromise = Promise.resolve([{
     id: 123,
     name: "Shubham"
 }]);
+
 mockFetchData.mockResolvedValue([{
     id: 123,
     name: "Shubham"
 }])
  
-test('Get Usernames', async() => {
+test('Get Usernames', () => {
     // return fetchDataPromise.then(async () => {
         
     // })
-expect(await abc()).toEqual([{
+// expect(await abc()).toEqual([{
+//             id: 123,
+//             name:"Shubham"
+//         }])
+    abc();
+    expect(mockFetchData).toHaveBeenCalled();
+    return fetchDataPromise.then(() => {
+        expect(abc()).toEqual([{
             id: 123,
             name:"Shubham"
         }])
-    // abc();
-    // expect(mockFetchData).toHaveBeenCalled();
-    // return fetchDataPromise.then(() => {
-    //     expect(abc()).toEqual([{
-    //         id: 123,
-    //         name:"Shubham"
-    //     }])
-    // })
+    })
 });

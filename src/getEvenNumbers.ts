@@ -3,7 +3,7 @@
 function getEvenNumberUsingFilter(list:any[]):number[] {
     return list.filter(num=> num%2===0)
 }
-
+ 
 function getEvenNumberUsingForEach(list: any[]): number[]{
 
     return list.reduce((arr, item) => {
