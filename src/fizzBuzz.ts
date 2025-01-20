@@ -11,7 +11,7 @@ function fizz_buzz(numbers: any[]): string {
     if (typeof num !== 'number') {
       throw new Error(`Invalid input: Expected a number but got ${typeof num}`);
     }
-
+     
     if (num % 15 === 0) {
       result.push('fizzbuzz');
     } else if (num % 3 === 0) {
